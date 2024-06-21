@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./todo.css";
+import { useNavigate } from "react-router-dom";
 const Todo = () => {
+  const navigate=useNavigate()
   const [inputvalue, setinputvalue] = useState("");
   const [inputarray, setinputarray] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
@@ -122,6 +124,7 @@ const Todo = () => {
               Delete All
             </button>
           )}
+          <button onClick={()=>navigate("/go")}>go</button>
         </header>
       </div>
     </>
