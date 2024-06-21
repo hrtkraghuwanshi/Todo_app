@@ -7,7 +7,7 @@ const Routing = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/todo" Component={Todo} />
+          <Route path="/" Component={Todo} />
         </Routes>
       </BrowserRouter>
     </>
