@@ -1,4 +1,6 @@
 {
-    "rewrites":[]
-  }
-  
+    "routes": [
+      { "src": "/todo", "dest": "/" }
+     
+    ]
+    }
