@@ -1,9 +1,5 @@
 {
-    "rewrites": [
-      {
-        "source": "/",
-        "destination": "/todo"
-      }
+    "rewrite":[
+        {"source":"/(.*)","destination":"/todo"}
     ]
-  }
-  
+}
