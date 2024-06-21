@@ -1,5 +1,5 @@
 {
     "rewrites":[
-        {"source":"/","destination":"/src/components/todo/todo.js"}
+        {"source":"/todo","destination":"/src/components/todo/todo.js"}
     ]
 }
