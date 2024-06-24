@@ -3,11 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Todo from "../todo/Todo";
 
 const Routing = () => {
+  
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" Component={Todo} />
+          <Route path="/todo" Component={Todo} />
         </Routes>
       </BrowserRouter>
     </>
@@ -15,3 +16,6 @@ const Routing = () => {
 };
 
 export default Routing;
+
+
+
