@@ -7,7 +7,7 @@ const Todo = () => {
   );
   const [editIndex, setEditIndex] = useState(-1);
   const [editText, setEditText] = useState("");
-    console.log(inputarray);
+  // console.log(inputarray);
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem("todos"));
     if (storedTodos) {
@@ -22,10 +22,10 @@ const Todo = () => {
       alert("Please Enter Task");
       return;
     }
-   if(inputarray.map((val)=>val.description).includes(inputvalue)){
-    alert("Tasl already exists")
-    return;
-   }
+    if (inputarray.map((val) => val.description).includes(inputvalue)) {
+      alert("Task already exists");
+      return;
+    }
     const newTask = {
       description: inputvalue,
       createdAt: new Date().toLocaleString(),
@@ -46,7 +46,7 @@ const Todo = () => {
       alert("Please Enter Task ");
       return;
     }
-  
+
     const updatedTodos = [...inputarray];
     updatedTodos[index] = {
       ...updatedTodos[index],
