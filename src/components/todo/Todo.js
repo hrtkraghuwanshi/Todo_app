@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./todo.css";
+import { message } from "antd";
+
 const Todo = () => {
   const [inputvalue, setinputvalue] = useState("");
   const [inputarray, setinputarray] = useState(
@@ -19,11 +21,11 @@ const Todo = () => {
   }, [inputarray]);
   const handleaddtask = () => {
     if (!inputvalue) {
-      alert("Please Enter Task");
+      message.error("Please Enter Task",3);
       return;
     }
     if (inputarray.map((val) => val.description).includes(inputvalue)) {
-      alert("Task already exists");
+      message.error("Task already exists", 3);
       return;
     }
     const newTask = {
@@ -43,7 +45,7 @@ const Todo = () => {
   };
   const handleSaveEdit = (index) => {
     if (editText === "") {
-      alert("Please Enter Task ");
+      message.error("Please Enter Task ", 3);
       return;
     }
 
@@ -72,7 +74,7 @@ const Todo = () => {
     <>
       <div className="App">
         <header className="App-header">
-          <h1>TODO App</h1>
+          <h1>TODO APP</h1>
           <div className="todo-input">
             <input
               type="text"
