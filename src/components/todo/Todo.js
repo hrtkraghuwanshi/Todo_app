@@ -1,15 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./todo.css";
-import { useNavigate } from "react-router-dom";
 const Todo = () => {
-  const navigate = useNavigate();
   const [inputvalue, setinputvalue] = useState("");
   const [inputarray, setinputarray] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
   );
   const [editIndex, setEditIndex] = useState(-1);
   const [editText, setEditText] = useState("");
-  //   console.log(inputarray);
+    console.log(inputarray);
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem("todos"));
     if (storedTodos) {
@@ -24,6 +22,10 @@ const Todo = () => {
       alert("Please Enter Task");
       return;
     }
+   if(inputarray.map((val)=>val.description).includes(inputvalue)){
+    alert("Tasl already exists")
+    return;
+   }
     const newTask = {
       description: inputvalue,
       createdAt: new Date().toLocaleString(),
@@ -44,6 +46,7 @@ const Todo = () => {
       alert("Please Enter Task ");
       return;
     }
+  
     const updatedTodos = [...inputarray];
     updatedTodos[index] = {
       ...updatedTodos[index],
@@ -119,7 +122,7 @@ const Todo = () => {
               <p>No Task Added</p>
             )}
           </ul>
-          {inputarray.length > 0 && (
+          {inputarray.length > 1 && (
             <button onClick={() => setinputarray([])} className="button">
               Delete All
             </button>
